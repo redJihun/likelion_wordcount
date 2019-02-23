@@ -6,6 +6,10 @@
 <!-- 입력받은 전체 텍스트 -->
 {{ fulltext }}
 
+<h1>공백을 제외한 글자 수: </h1>
+<!-- 텍스트의 글자 수 -->
+{{ lettercount }}
+
 <h1>단어 카운트: </h1>
 <!-- '단어' - '단어나온 횟수' -->
 {% for word, countTotal in dictionary %}

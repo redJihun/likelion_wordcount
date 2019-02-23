@@ -11,8 +11,9 @@ def about(request):
 def count(request):
     full_text = request.GET['fulltext']
     letter_count = 0
+
     for letter in full_text:
-        if((letter!='\n')&&(letter!='\t')&&(letter!=' ')):
+        if((letter!=' ')&(letter!='\t')&(letter!='n')):
             letter_count += 1
 
     word_list = full_text.split()
@@ -25,4 +26,4 @@ def count(request):
             # add to the dictionary
             word_dictionary[word] = 1
 
-    return render(request, 'wordcount/count.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items()})
+    return render(request, 'wordcount/count.html', {'fulltext': full_text, 'total': len(word_list), 'dictionary': word_dictionary.items(), 'lettercount': letter_count})
